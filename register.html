@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+function registerValidation() {
+	var email=document.getElementById("email").value;
+	var pwd=document.getElementById("pwd").value;
+	var pd=document.getElementById("pd").value;
+	var emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+	var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,12}$/;
+	if (email=='') {
+		alert("Please enter your email");
+		document.getElementById("email").focus();
+		return false;
+	}
+	if (!emailRegex.test(email)) {
+		alert("Please enter a valid email");
+		document.getElementById("email").focus();
+		return false;
+		}
+	if (pwd=='') {
+		alert("Password should ccontain atleast 1uppercase, lowercase, special characters, character length should be 8-12");
+		document.getElementById("pwd").focus();
+		return false;
+	}
+		if (!passwordRegex.test(pwd)) {
+			alert("Please enter a valid password");
+			document.getElementById("pwd").focus()
+			return false;
+	}
+	if (pd=='') {
+		alert("Please re-enter your password");
+		document.getElementById("pd").focus();
+		return false;
+	}
+	if (!passwordRegex.test(pd)) {
+		alert("Password should ccontain atleast 1uppercase, lowercase, special characters, character length should be 8-12");
+		document.getElementById("pd").focus()
+		return false;
+		}
+	
+	if (pwd !=pd) {
+		alert("Password doesn't match");
+		document.getElementById("pd").focus()
+		return false;
+	}
+	return true;
+}
+</script>
+</head>
+<body>
+<form action="" method="" onsubmit="return registerValidation()">
+<input type="email" id="email" name="email"><br><br>
+<input type="password" id="pwd" name="pwd"><br><br>
+<input type="password" id="pd" name="pd"><br><br>
+<input type="submit" value="Register">  
+</form>
+</body>
+</html>
